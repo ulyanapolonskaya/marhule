@@ -1,8 +1,7 @@
 import React from 'react';
-import ExportWords from '../components/ExportWords';
 
 interface HomeViewProps {
-  onNavigate: (view: 'home' | 'flashcards' | 'testWriting' | 'addWord' | 'reviewLearned') => void;
+  onNavigate: (view: 'home' | 'flashcards' | 'testWriting' | 'addWord' | 'reviewLearned' | 'dictionary') => void;
 }
 
 const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
@@ -37,9 +36,12 @@ const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
           ➕ Add New Word
         </button>
         
-        <div className="export-container">
-          <ExportWords />
-        </div>
+        <button
+          className="main-button dictionary-button"
+          onClick={() => onNavigate('dictionary')}
+        >
+          📚 Dictionary
+        </button>
       </div>
     </div>
   );

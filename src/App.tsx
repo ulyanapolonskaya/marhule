@@ -8,9 +8,10 @@ import FlashcardsView from './views/FlashcardsView';
 import TestWritingView from './views/TestWritingView';
 import AddWordView from './views/AddWordView';
 import ReviewLearnedView from './views/ReviewLearnedView';
+import DictionaryView from './views/DictionaryView';
 
 // View type for routing
-type View = 'home' | 'flashcards' | 'testWriting' | 'addWord' | 'reviewLearned';
+type View = 'home' | 'flashcards' | 'testWriting' | 'addWord' | 'reviewLearned' | 'dictionary';
 
 function App() {
   // State for view routing
@@ -34,6 +35,8 @@ function App() {
         return <AddWordView onBack={() => setCurrentView('home')} />;
       case 'reviewLearned':
         return <ReviewLearnedView onBack={() => setCurrentView('home')} />;
+      case 'dictionary':
+        return <DictionaryView onBack={() => setCurrentView('home')} />;
       default:
         return <HomeView onNavigate={setCurrentView} />;
     }
