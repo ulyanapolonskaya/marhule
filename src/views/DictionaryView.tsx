@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getWords, toggleWordLearned } from '../utils/localStorage';
 import type { WordPair } from '../data/presetWords';
 import ExportWords from '../components/ExportWords';
+import LoadUpdates from '../components/LoadUpdates';
 
 interface DictionaryViewProps {
   onBack: () => void;
@@ -29,6 +30,7 @@ const DictionaryView: React.FC<DictionaryViewProps> = ({ onBack }) => {
             ← Back
           </button>
           <ExportWords />
+          <LoadUpdates onWordsUpdated={setWords} />
         </div>
         <h2>Dictionary</h2>
       </div>
