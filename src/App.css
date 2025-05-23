@@ -1,0 +1,346 @@
+/* General Styles */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --accent-color: #4fc3f7;
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --error-color: #e57373;
+  --success-color: #81c784;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/* Main Content */
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.main-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.main-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.add-word-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.add-word-button:hover {
+  background-color: #3bb1e8;
+}
+
+.export-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.export-button {
+  background-color: #78909c;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+}
+
+.export-button:hover {
+  background-color: #607d8b;
+}
+
+.back-button {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 0.6rem 1.2rem;
+  margin-top: 2rem;
+}
+
+.back-button:hover {
+  background-color: #d0d0d0;
+}
+
+.control-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  margin: 0.5rem;
+}
+
+.control-button:hover {
+  background-color: #3bb1e8;
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Home View */
+.home-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Flashcard Styles */
+.flashcard-container {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  margin: 2rem auto;
+}
+
+.flashcard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}
+
+.flashcard-front {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.flashcard-back {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flashcard-hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+.flashcard-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Test Writing View */
+.test-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.russian-word {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.feedback {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  text-align: center;
+}
+
+.feedback.correct {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.feedback.incorrect {
+  background-color: var(--error-color);
+  color: white;
+}
+
+.post-answer-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Add Word View */
+.add-word-view {
+  width: 100%;
+  max-width: 500px;
+}
+
+.add-word-view h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.add-word-view form {
+  width: 100%;
+}
+
+.message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: var(--success-color);
+  color: white;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-state p {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .main-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .flashcard-container {
+    height: 200px;
+  }
+  
+  .russian-word {
+    font-size: 1.6rem;
+  }
+}
