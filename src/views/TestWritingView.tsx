@@ -92,7 +92,6 @@ const TestWritingView: React.FC<TestWritingViewProps> = ({ onBack }) => {
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
               disabled={!!feedback}
-              autoFocus
             />
           </div>
           

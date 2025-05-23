@@ -24,13 +24,13 @@ const DictionaryView: React.FC<DictionaryViewProps> = ({ onBack }) => {
   return (
     <div className="dictionary-view">
       <div className="view-header">
-        <button className="back-button" onClick={onBack}>
-          ← Back
-        </button>
-        <h2>Dictionary</h2>
-        <div className="export-container">
+        <div className="back-section">
+          <button className="back-button" onClick={onBack}>
+            ← Back
+          </button>
           <ExportWords />
         </div>
+        <h2>Dictionary</h2>
       </div>
 
       <div className="search-container">

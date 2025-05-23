@@ -45,7 +45,6 @@ const AddWordView: React.FC<AddWordViewProps> = ({ onBack }) => {
             type="text"
             value={russian}
             onChange={(e) => setRussian(e.target.value)}
-            autoFocus
           />
         </div>
         
