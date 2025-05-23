@@ -25,9 +25,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 800px;
+  max-width: 90%; /* Using percentage for better desktop scaling */
+  width: 100%;
   margin: 0 auto;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -62,10 +64,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   background-color: #363142; /* Slightly lighter than background for contrast */
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Content Wrapper - ensures consistent width across all views */
+.home-view,
+.flashcard-container,
+.test-container,
+.add-word-view,
+.review-learned-view {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* Footer */
@@ -170,7 +186,6 @@ button:active {
 
 /* Home View */
 .home-view {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,8 +200,6 @@ button:active {
 
 /* Flashcard Styles */
 .flashcard-container {
-  width: 100%;
-  max-width: 400px;
   height: 250px;
   perspective: 1000px;
   margin: 2rem auto;
@@ -245,8 +258,6 @@ button:active {
 
 /* Test Writing View */
 .test-container {
-  width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -306,8 +317,9 @@ button:active {
 
 /* Add Word View */
 .add-word-view {
-  width: 100%;
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .add-word-view h2 {
@@ -341,7 +353,7 @@ button:active {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .app-header h1 {
     font-size: 1.5rem;
   }
@@ -353,6 +365,7 @@ button:active {
   
   .flashcard-container {
     height: 200px;
+    max-width: 90%;
   }
   
   .russian-word {
