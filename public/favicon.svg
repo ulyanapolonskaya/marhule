@@ -1,18 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="48" fill="#4a6fa5" />
+  <!-- Background circle with muted violet color from the app theme -->
+  <circle cx="50" cy="50" r="48" fill="#5d4777" />
   
-  <!-- Russian flag colors -->
-  <rect x="20" y="30" width="25" height="10" fill="#fff" />
-  <rect x="20" y="40" width="25" height="10" fill="#0039a6" />
-  <rect x="20" y="50" width="25" height="10" fill="#d52b1e" />
-  
-  <!-- Arrow -->
-  <path d="M50 40 L70 50 L50 60" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <!-- Slovak flag colors -->
-  <rect x="75" y="30" width="5" height="30" fill="#fff" />
-  <rect x="80" y="30" width="5" height="10" fill="#0039a6" />
-  <rect x="80" y="40" width="5" height="10" fill="#fff" />
-  <rect x="80" y="50" width="5" height="10" fill="#d52b1e" />
+  <!-- Heart-shaped apricot -->
+  <g transform="translate(25, 30) scale(0.5)">
+    <!-- Heart-shaped apricot body -->
+    <path d="M50,90 C100,65 120,10 50,30 C-20,10 0,65 50,90 Z" fill="#ffb878" />
+    
+    <!-- Apricot highlights -->
+    <path d="M35,45 C45,35 30,25 25,35 C20,45 30,50 35,45 Z" fill="#ffd1a3" opacity="0.7" />
+    
+    <!-- Apricot blush -->
+    <path d="M70,55 C80,50 85,40 75,35 C65,30 60,45 70,55 Z" fill="#ff9d5c" opacity="0.5" />
+    
+    <!-- Apricot cleft -->
+    <path d="M50,30 Q50,60 50,85" stroke="#e67e22" stroke-width="3" opacity="0.4" />
+  </g>
 </svg>

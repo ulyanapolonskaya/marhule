@@ -42,7 +42,8 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>🇷🇺➡️🇸🇰 Slovak Vocabulary Trainer</h1>
+        <h1>🍑 <span className="app-name">marhule</span></h1>
+        <div className="app-subtitle">Slovak Vocabulary Trainer</div>
       </header>
       <main className="app-content">
         {renderView()}

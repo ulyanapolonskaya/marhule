@@ -1,14 +1,14 @@
 /* General Styles */
 :root {
-  --primary-color: #4a6fa5;
-  --secondary-color: #166088;
-  --accent-color: #4fc3f7;
-  --background-color: #f5f7fa;
-  --text-color: #333;
-  --error-color: #e57373;
-  --success-color: #81c784;
+  --primary-color: #5d4777; /* Muted violet */
+  --secondary-color: #7b6995; /* Lighter muted violet */
+  --accent-color: #c98b4f; /* Muted orange */
+  --background-color: #2b2636; /* Dark muted violet */
+  --text-color: #e6e6e6; /* Slightly off-white for less strain */
+  --error-color: #c27575; /* Muted red */
+  --success-color: #7aad7e; /* Muted green */
   --border-radius: 8px;
-  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -43,6 +43,19 @@ body {
   color: var(--primary-color);
 }
 
+.app-name {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.app-subtitle {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+}
+
 /* Main Content */
 .app-content {
   flex: 1;
@@ -50,7 +63,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  background-color: white;
+  background-color: #363142; /* Slightly lighter than background for contrast */
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
@@ -61,7 +74,7 @@ body {
   padding: 1rem 0;
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #9d8bab; /* Muted light violet */
 }
 
 /* Buttons */
@@ -79,7 +92,7 @@ button:active {
 
 .main-button {
   background-color: var(--primary-color);
-  color: white;
+  color: #e6e6e6;
   padding: 1rem 2rem;
   font-size: 1.2rem;
   margin: 0.5rem;
@@ -93,14 +106,14 @@ button:active {
 
 .add-word-button {
   background-color: var(--accent-color);
-  color: white;
+  color: #e6e6e6;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   margin-top: 1.5rem;
 }
 
 .add-word-button:hover {
-  background-color: #3bb1e8;
+  background-color: #b07a45; /* Darker muted orange on hover */
 }
 
 .export-container {
@@ -111,41 +124,41 @@ button:active {
 }
 
 .export-button {
-  background-color: #78909c;
-  color: white;
+  background-color: #6e5c8c; /* Muted violet */
+  color: #e6e6e6;
   padding: 0.7rem 1.4rem;
   font-size: 0.9rem;
 }
 
 .export-button:hover {
-  background-color: #607d8b;
+  background-color: #5d4e77; /* Darker muted violet on hover */
 }
 
 .back-button {
-  background-color: #e0e0e0;
-  color: #333;
+  background-color: #4a4255; /* Muted dark violet */
+  color: #e6e6e6;
   padding: 0.6rem 1.2rem;
   margin-top: 2rem;
 }
 
 .back-button:hover {
-  background-color: #d0d0d0;
+  background-color: #5d4e77; /* Slightly lighter muted violet on hover */
 }
 
 .control-button {
   background-color: var(--accent-color);
-  color: white;
+  color: #e6e6e6;
   padding: 0.7rem 1.4rem;
   margin: 0.5rem;
 }
 
 .control-button:hover {
-  background-color: #3bb1e8;
+  background-color: #b07a45; /* Darker muted orange on hover */
 }
 
 .submit-button {
   background-color: var(--primary-color);
-  color: white;
+  color: #e6e6e6;
   padding: 0.8rem 1.5rem;
   margin-top: 1rem;
   font-size: 1rem;
@@ -208,12 +221,12 @@ button:active {
 
 .flashcard-front {
   background-color: var(--primary-color);
-  color: white;
+  color: #e6e6e6;
 }
 
 .flashcard-back {
-  background-color: var(--secondary-color);
-  color: white;
+  background-color: var(--accent-color);
+  color: #e6e6e6;
   transform: rotateY(180deg);
 }
 
@@ -242,7 +255,7 @@ button:active {
 .russian-word {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .input-group {
@@ -259,7 +272,9 @@ button:active {
 .input-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #6e5c8c; /* Muted violet */
+  background-color: #3c3546; /* Dark muted violet */
+  color: #e6e6e6;
   border-radius: var(--border-radius);
   font-size: 1rem;
 }
@@ -274,12 +289,12 @@ button:active {
 
 .feedback.correct {
   background-color: var(--success-color);
-  color: white;
+  color: #e6e6e6;
 }
 
 .feedback.incorrect {
   background-color: var(--error-color);
-  color: white;
+  color: #e6e6e6;
 }
 
 .post-answer-controls {
@@ -297,7 +312,7 @@ button:active {
 
 .add-word-view h2 {
   text-align: center;
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 2rem;
 }
 
@@ -309,7 +324,7 @@ button:active {
   margin-top: 1.5rem;
   padding: 1rem;
   background-color: var(--success-color);
-  color: white;
+  color: #e6e6e6;
   border-radius: var(--border-radius);
   text-align: center;
 }
@@ -322,7 +337,7 @@ button:active {
 
 .empty-state p {
   margin-bottom: 2rem;
-  color: #666;
+  color: #9d8bab; /* Muted light violet */
 }
 
 /* Responsive Design */
