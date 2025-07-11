@@ -9,22 +9,36 @@ interface TestWritingViewProps {
 
 const TestWritingView: React.FC<TestWritingViewProps> = ({ onBack }) => {
   const [words, setWords] = useState<WordPair[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentWord, setCurrentWord] = useState<WordPair | null>(null);
+  const [remainingWords, setRemainingWords] = useState<WordPair[]>([]);
   const [userInput, setUserInput] = useState('');
   const [feedback, setFeedback] = useState<{ isCorrect: boolean; message: string } | null>(null);
   // We only need the setter function for unlearned words
   const [, setUnlearned] = useState<WordPair[]>([]);
 
-  // Load unlearned words
+  // Function to select a random word from the remaining words
+  const selectRandomWord = (wordsList: WordPair[]) => {
+    if (wordsList.length === 0) return null;
+    const randomIndex = Math.floor(Math.random() * wordsList.length);
+    return wordsList[randomIndex];
+  };
+
+  // Load unlearned words and select a random one
   useEffect(() => {
     const allWords = getWords();
     const unlearnedWords = allWords.filter(word => !word.learned);
     setUnlearned(unlearnedWords);
     setWords(unlearnedWords);
+    
+    if (unlearnedWords.length > 0) {
+      const randomWord = selectRandomWord(unlearnedWords);
+      setCurrentWord(randomWord);
+      setRemainingWords(unlearnedWords.filter(word => word.id !== randomWord?.id));
+    }
   }, []);
 
   // Handle empty words list
-  if (words.length === 0) {
+  if (words.length === 0 || !currentWord) {
     return (
       <div className="test-writing-view">
         <div className="empty-state">
@@ -35,10 +49,12 @@ const TestWritingView: React.FC<TestWritingViewProps> = ({ onBack }) => {
     );
   }
 
-  const currentWord = words[currentIndex];
+  // currentWord is now managed by state
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    
+    if (!currentWord) return;
     
     // Check if the answer is correct (case insensitive)
     const isCorrect = userInput.trim().toLowerCase() === currentWord.slovak.toLowerCase();
@@ -56,26 +72,44 @@ const TestWritingView: React.FC<TestWritingViewProps> = ({ onBack }) => {
   const handleNext = () => {
     setUserInput('');
     setFeedback(null);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+    
+    // If we've gone through all words, reset the remaining words list
+    if (remainingWords.length === 0) {
+      const newRemainingWords = words.filter(word => word.id !== currentWord?.id);
+      const nextWord = selectRandomWord(newRemainingWords);
+      setCurrentWord(nextWord);
+      setRemainingWords(newRemainingWords.filter(word => word.id !== nextWord?.id));
+    } else {
+      // Otherwise, pick a random word from the remaining words
+      const nextWord = selectRandomWord(remainingWords);
+      setCurrentWord(nextWord);
+      setRemainingWords(remainingWords.filter(word => word.id !== nextWord?.id));
+    }
   };
 
   const handleMarkLearned = () => {
+    if (!currentWord) return;
+    
     const updatedWords = toggleWordLearned(currentWord.id);
     const updatedUnlearned = updatedWords.filter(word => !word.learned);
     setUnlearned(updatedUnlearned);
     setWords(updatedUnlearned);
     
-    // If no more words, don't change index
-    // Otherwise, if we're at the last word, go to the first one
+    // If no more words, don't select a new word
     if (updatedUnlearned.length === 0) {
+      setCurrentWord(null);
+      setRemainingWords([]);
       return;
-    } else if (currentIndex >= updatedUnlearned.length) {
-      setCurrentIndex(0);
-    } else {
-      // Reset for next word
-      setUserInput('');
-      setFeedback(null);
     }
+    
+    // Reset for next word
+    setUserInput('');
+    setFeedback(null);
+    
+    // Select a new random word from the updated unlearned words
+    const nextWord = selectRandomWord(updatedUnlearned);
+    setCurrentWord(nextWord);
+    setRemainingWords(updatedUnlearned.filter(word => word.id !== nextWord?.id));
   };
 
   return (
