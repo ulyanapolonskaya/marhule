@@ -10,7 +10,7 @@ const ExportWords: React.FC = () => {
     // Create a temporary link and trigger download
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'slovak-vocabulary-words.json';
+    a.download = 'slovak-vocabulary-words.txt';
     document.body.appendChild(a);
     a.click();
     
