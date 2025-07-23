@@ -16,12 +16,12 @@ type View = 'home' | 'flashcards' | 'testWriting' | 'addWord' | 'reviewLearned' 
 function App() {
   // State for view routing
   const [currentView, setCurrentView] = useState<View>('home');
-  
+
   // Initialize words on app load
   useEffect(() => {
     initializeWords();
   }, []);
-  
+
   // Render the current view
   const renderView = () => {
     switch (currentView) {
@@ -52,7 +52,8 @@ function App() {
         {renderView()}
       </main>
       <footer className="app-footer">
-        <p>© 2025 Slovak Vocabulary Trainer</p>
+        <div>© 2025 Slovak Vocabulary Trainer</div>
+        <span className="version-text">Version 1.1</span>
       </footer>
     </div>
   );

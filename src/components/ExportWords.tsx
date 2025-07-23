@@ -6,14 +6,14 @@ const ExportWords: React.FC = () => {
     const wordsJson = exportWords();
     const blob = new Blob([wordsJson], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    
+
     // Create a temporary link and trigger download
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'slovak-vocabulary-words.txt';
+    a.download = 'slovak-vocabulary-words.json';
     document.body.appendChild(a);
     a.click();
-    
+
     // Clean up
     setTimeout(() => {
       document.body.removeChild(a);
