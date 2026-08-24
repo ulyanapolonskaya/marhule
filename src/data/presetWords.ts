@@ -183,7 +183,7 @@ export const presetWords: WordPair[] = [
   {
     "russian": "некрасивый",
     "slovak": "škaredý",
-    "learned": false,
+    "learned": true,
     "id": "30"
   },
   {
@@ -195,7 +195,7 @@ export const presetWords: WordPair[] = [
   {
     "russian": "её",
     "slovak": "jej",
-    "learned": false,
+    "learned": true,
     "id": "32"
   },
   {
